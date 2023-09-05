@@ -40,8 +40,8 @@ jobs:
 
       - name: Copy Allure Report files
         run: |
-          mkdir -p gh-pages
-          cp -R APS/TriCalc/src/report/allure-report/* gh-pages/
+          mkdir -p gh-pages/APS/TriCalc/src/report
+          cp -R APS/TriCalc/src/report/allure-report/* gh-pages/APS/TriCalc/src/report/
           
       - name: Deploy report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
