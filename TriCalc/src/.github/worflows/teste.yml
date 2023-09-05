@@ -25,7 +25,7 @@ jobs:
 
       - name: Run tests with Allure
         run: |
-          pytest --alluredir=report/allure-results services/test/test_triangle_cal.py
+          pytest --alluredir=report/allure-report services/test/test_triangle_cal.py
 
   deploy:
     name: Deploy Report
@@ -41,7 +41,7 @@ jobs:
       - name: Copy Allure Report files
         run: |
           mkdir -p gh-pages/allure-report
-          cp -R report/allure-results/* gh-pages/allure-report/
+          cp -R report/allure-report/* gh-pages/allure-report/
           
       - name: Deploy report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
