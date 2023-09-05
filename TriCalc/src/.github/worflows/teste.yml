@@ -27,11 +27,6 @@ jobs:
         run: |
           pytest --alluredir=report/allure-results services/test/test_triangle_cal.py
 
-      - name: Upload Allure Report
-        uses: "allure-actions/upload-report@v5"
-        with:
-          directory: "report/allure-results"
-
   deploy:
     name: Deploy Report
     runs-on: ubuntu-latest
@@ -45,9 +40,9 @@ jobs:
 
       - name: Copy Allure Report files
         run: |
-          cp -R report/allure-results/* gh-pages/
-          cp -R report/history/* gh-pages/
-
+          mkdir -p gh-pages/allure-report
+          cp -R report/allure-results/* gh-pages/allure-report/
+          
       - name: Deploy report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
